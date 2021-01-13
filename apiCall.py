@@ -23,7 +23,6 @@ def generate_query_string(ingreds_list, dish_type_str):
 
     ingreds_str = "i="
     for i in ingreds_list:
-        print(i)
         ingreds_str += i + ","
     ingreds_str = ingreds_str[:-1]
 
@@ -46,10 +45,27 @@ def main():
     call_str_template = generate_query_string(ingredients, dish_type_str)
     print(call_str_template)
 
+    # Iterate through all pages
+    all_recipes_arr = []
+    page_num = 0
+
+    while page_num < 10:
+        page_num += 1
+        print(page_num)
+        r = requests.get(call_str_template + "&p=" + str(page_num))
+        if r.status_code != 200:
+            continue
+        curr_page_results = r.json()['results']
+        if len(curr_page_results) == 0:
+            break
+        all_recipes_arr = all_recipes_arr + curr_page_results
+
+    jprint(all_recipes_arr)
+
     # # Make GET requests to get a Response object "r" until no more results are found
     # r = requests.get("http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3")
     #
-    # # Test jprint r.json().
+    # # Test jprint r.json()json().
     # jprint(r.json())
 
 
