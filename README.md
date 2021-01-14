@@ -19,7 +19,7 @@ have other ingredients they did not originally specify. The final list of recipe
 follow without having to go to the grocery store or knock on a neighbor's door!!
 
 **Anticipated Stack** <br /> 
-Recipe API: Recipe Puppy (http://www.recipepuppy.com/about/api/). We may decide to include others at some point. 
+Recipe API: Recipe Puppy (http://www.recipepuppy.com/about/api/). We may decide to include others at some point. <br />
 Front End: React-Native <br /> 
 Backend: Django/Python <br /> 
 
