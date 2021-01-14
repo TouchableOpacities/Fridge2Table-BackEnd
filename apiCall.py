@@ -46,7 +46,7 @@ def main():
     call_str_template = generate_query_string(ingredients, dish_type_str)
     print(call_str_template)
 
-    # Iterate through all pages
+    # Make GET requests to get a Response object "r"; iterate through pages until no more results are found
     all_recipes_arr = []
     page_num = 0
 
@@ -62,12 +62,6 @@ def main():
         all_recipes_arr = all_recipes_arr + curr_page_results
 
     jprint(all_recipes_arr)
-
-    # # Make GET requests to get a Response object "r" until no more results are found
-    # r = requests.get("http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3")
-    #
-    # # Test jprint r.json()json().
-    # jprint(r.json())
 
 
 if __name__ == "__main__":
