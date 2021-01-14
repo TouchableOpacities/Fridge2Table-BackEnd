@@ -18,5 +18,5 @@ Recipe API: Recipe Puppy (http://www.recipepuppy.com/about/api/). We may decide 
 Front End: React-Native <br /> 
 Backend: Django/Python <br /> 
 
-**Presentation URL** <br />  
+**Presentation URL**
 Coming soon! (so hold onto your hats!)
