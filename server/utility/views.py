@@ -4,8 +4,7 @@ import json
 from .scripts import apiCall
 
 
-def index(request):
-    return HttpResponse("<H1>Test</H1>")
+
 
 # @ensure_csrf_cookie
 def get_person(request):
@@ -13,8 +12,8 @@ def get_person(request):
     # get data from request
     dataIn = json.loads(request.body)  # {'name':'John', 'age': 42}
     print("Post Info:")
-    print(dataIn['ingr'])
-    ingredients = dataIn['ingr']
+    print(dataIn['ingredients'])
+    ingredients = dataIn['ingredients']
     dish_type_str = ""
 
     # make call to getRecipes function
