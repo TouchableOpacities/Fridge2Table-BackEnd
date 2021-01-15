@@ -122,3 +122,5 @@ STATIC_URL = '/static/'
 # CSRF_COOKIE_SECURE = False
 # CSRF_HTTP_ONLY = False
 # SESSION_COOKIE_SECURE = False
+STATIC_ROOT = BASE_DIR / 'static'
+
