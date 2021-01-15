@@ -23,6 +23,8 @@ def process_query_result(query_result):
         recipes.append(Recipe(rec["href"], rec["ingredients"], rec["thumbnail"], rec["title"]))
 
     # ... DO SOME STUFF ...
+    for recipe in recipes:
+        recipe.replace_thumbnail()
 
     # "Dictify" each recipe and return list of dicts ready for sending to frontend as JSON
     result = []

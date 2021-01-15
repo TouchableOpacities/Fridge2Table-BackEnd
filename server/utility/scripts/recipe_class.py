@@ -26,6 +26,20 @@ class Recipe:
                        "title": self.title}
         return recipe_dict
 
+    # Method to update thumbnail to default set of icons.
+    def replace_thumbnail(self):
+        ICONS_DICT = {"salad": "https://cdn2.iconfinder.com/data/icons/food-drink-60/50/1F957-green-salad-512.png"}
+        DEFAULT_ICON = "https://www.diginico.com/wp-content/uploads/2020/01/fridge.jpg"
+
+        matched = False
+        for keyword in ICONS_DICT.keys():
+            if self.title.lower().find(keyword) != -1:
+                self.thumbnail = ICONS_DICT[keyword]
+                matched = True
+                break
+
+        if not matched:
+            self.thumbnail = DEFAULT_ICON
 
 # ~~~~~~~~~~~~~~~~~~~~ FOR TESTING ONLY ~~~~~~~~~~~~~~~~~~~~
 def main():
