@@ -22,6 +22,6 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('', lambda request: HttpResponse("<H1>Welcome to our API site. Please use this endpoint URL...</H1>")),
-    path('api/', include('utility.urls')),
+    path('api/', include('utility.urls')),      # sends to utility/urls.py
     path('admin/', admin.site.urls),
 ]
