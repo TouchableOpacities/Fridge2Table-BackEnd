@@ -1,3 +1,5 @@
+# Handles call to RecipePuppy API. get_recipes() returns list of dictionaries representing recipes.
+
 import requests
 import json
 
