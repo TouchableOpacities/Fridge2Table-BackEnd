@@ -3,9 +3,7 @@ import json
 from .scripts import recipe_puppy_api
 
 
-
-
-def get_person(request):
+def get_recipes(request):
 
     # get data from request
     dataIn = json.loads(request.body)  # {'name':'John', 'age': 42}
