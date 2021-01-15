@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.http import JsonResponse
 import json
-from .scripts import apiCall
+from .scripts import recipe_puppy_api
 
 
 
@@ -17,7 +17,7 @@ def get_person(request):
     dish_type_str = ""
 
     # make call to getRecipes function
-    recipes = apiCall.get_recipes(ingredients, dish_type_str)
+    recipes = recipe_puppy_api.get_recipes(ingredients, dish_type_str)
 
     # dataOut= {
     #     'id': 1234,

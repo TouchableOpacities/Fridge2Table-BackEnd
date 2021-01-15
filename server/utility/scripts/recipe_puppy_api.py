@@ -2,16 +2,17 @@ import requests
 import json
 
 
+# ---------------------------------------------------------------------------
 # RECIPE PUPPY API DOCUMENTATION
 # For example:
 # http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
 #
 # Optional Parameters:
-# i : comma delimited ingredients
+# i : comma delimited ingredients (with '-' to exclude)
 # q : normal search query (ex: "omelet")
-# p : page (???)
+# p : page
 # format=xml : if you want xml instead of json
-
+# ---------------------------------------------------------------------------
 
 def jprint(obj):
     # create a formatted string of the Python JSON object
@@ -55,7 +56,15 @@ def get_recipes(ingredients, dish_type_str):
             break
         all_recipes_arr = all_recipes_arr + curr_page_results
 
-    # jprint(all_recipes_arr)
+    jprint(all_recipes_arr)
     return all_recipes_arr
 
 
+# ~~~~~~~~~~~~~~~~~~~~ FOR TESTING ONLY ~~~~~~~~~~~~~~~~~~~~
+def main():
+    test_ingreds_list = ["onions", "chicken"]
+    get_recipes(test_ingreds_list, "")
+
+if __name__ == '__main__':
+    main()
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
