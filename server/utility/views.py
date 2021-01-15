@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.http import JsonResponse
 import json
 from .scripts import recipe_puppy_api
@@ -6,7 +5,6 @@ from .scripts import recipe_puppy_api
 
 
 
-# @ensure_csrf_cookie
 def get_person(request):
 
     # get data from request
