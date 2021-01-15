@@ -49,7 +49,6 @@ def get_recipes(ingredients, dish_type_str):
 
     while page_num < 10:
         page_num += 1
-        print(page_num)
         r = requests.get(call_str_template + "&p=" + str(page_num))
         if r.status_code != 200:
             continue
