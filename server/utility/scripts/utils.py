@@ -1,5 +1,5 @@
 import json
-from .recipe_class import Recipe
+from server.utility.scripts.recipe_class import Recipe
 
 
 # Receives request from frontend, returns list of ingredients
