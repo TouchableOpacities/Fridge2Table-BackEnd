@@ -75,14 +75,15 @@ class Recipe:
         DEFAULT_ICON = "https://www.diginico.com/wp-content/uploads/2020/01/fridge.jpg"
 
         matched = False
-        for keyword in ICONS_DICT.keys():
-            if self.title.lower().find(keyword) != -1:
-                self.thumbnail = ICONS_DICT[keyword]
-                matched = True
-                break
+        if self.thumbnail == "":
+            for keyword in ICONS_DICT.keys():
+               if self.title.lower().find(keyword) != -1:
+                    self.thumbnail = ICONS_DICT[keyword]
+                    matched = True
+                    break
 
-        if not matched:
-            self.thumbnail = DEFAULT_ICON
+            if not matched:
+                self.thumbnail = DEFAULT_ICON
 
 # ~~~~~~~~~~~~~~~~~~~~ FOR TESTING ONLY ~~~~~~~~~~~~~~~~~~~~
 def main():
