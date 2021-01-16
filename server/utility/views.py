@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from server.utility.scripts import utils
-from server.utility.scripts import recipe_puppy
+from .scripts import utils
+from .scripts import recipe_puppy
 
 
 # Uses RecipePuppy API to get list of recipes with given ingredients.
@@ -18,6 +18,6 @@ def get_recipes(request):
     query_result = recipe_puppy.get_recipes(ingredients, "", 10)  # empty string placeholder for, e.g., "omelet"
 
     # Process query results. Result is final list of dictionaries for returning to frontend.
-    final_result = utils.process_query_result(query_result)
+    final_result = utils.process_query_result(query_result, ingredients)
 
     return JsonResponse(final_result, safe=False)

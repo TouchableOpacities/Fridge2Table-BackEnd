@@ -1,10 +1,15 @@
+from .essential_ingredients import ESSENTIAL_INGREDIENTS
 # A class representing a recipe object.
 class Recipe:
 
     # Constructor method with instance variables set.
     def __init__(self, href: str, ingredients: str, thumbnail: str, title: str):
         self.href = href
-        self.ingred_list = ingredients.split(", ")
+
+        self.ingred_list = []
+        for ingred in ingredients.split(", "):
+            if not (ingred in ESSENTIAL_INGREDIENTS):
+                self.ingred_list.append(ingred)
         self.thumbnail = thumbnail
         self.title = title
 
@@ -19,7 +24,7 @@ class Recipe:
         return result
 
     def clean_title(self):
-        self.title.strip().replace(" Recipe", "")
+        self.title = self.title.strip().replace(" Recipe", "")
 
     # Method to "dict-ify" Recipe for JSON
     def dictify(self):

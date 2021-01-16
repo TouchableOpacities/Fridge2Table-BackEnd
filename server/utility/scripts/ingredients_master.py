@@ -2,33 +2,9 @@
 from typing import List, Dict
 import random
 import json
-from server.utility.scripts.recipe_class import Recipe
-from server.utility.scripts.recipe_puppy import get_recipes
-
-ESSENTIAL_INGREDIENTS = [
-    "salt",
-    "sugar",
-    "butter",
-    "water",
-    "vegetable oil",
-    "olive oil",
-    "black pepper",
-    "vanilla extract",
-    "cinnamon",
-    "powdered sugar",
-    "paprika",
-    "ice",
-    "honey",
-    "garlic salt",
-    "balsamic vinegar",
-    "red pepper",
-    "kosher salt",
-    "oregano",
-    "cayenne",
-    "baking soda",
-    "chili powder"
-    "white pepper"]
-
+from .recipe_class import Recipe
+from .recipe_puppy import get_recipes
+from .essential_ingredients import ESSENTIAL_INGREDIENTS
 
 # Make empty query to RecipePuppy to get random recipes, then parse to list of Recipe objects
 def get_recipe_objects(ingreds: List[str], num_pages: int):
