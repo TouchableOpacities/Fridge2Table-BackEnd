@@ -41,7 +41,7 @@ def generate_query_string(ingreds_list, dish_type_str):
 def get_recipes(ingredients, dish_type_str, num_pages: int):
     # Create api call string.
     call_str_template = generate_query_string(ingredients, dish_type_str)
-    print(call_str_template)
+    # print(call_str_template)
 
     # Make GET requests to get a Response object "r"; iterate through pages until no more results are found
     all_recipes_arr = []
@@ -64,7 +64,7 @@ def get_recipes(ingredients, dish_type_str, num_pages: int):
 # ~~~~~~~~~~~~~~~~~~~~ FOR TESTING ONLY ~~~~~~~~~~~~~~~~~~~~
 def main():
     test_ingreds_list = ["onions", "chicken"]
-    get_recipes(test_ingreds_list, "")
+    get_recipes(test_ingreds_list, "", 5)
 
 
 if __name__ == '__main__':
