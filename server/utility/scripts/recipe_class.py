@@ -28,10 +28,10 @@ class Recipe:
 
     # Method to update thumbnail to default set of icons.
     def replace_thumbnail(self):
-        ICONS_DICT = {"salad": "https://cdn2.iconfinder.com/data/icons/food-drink-60/50/1F957-green-salad-512.png",
+        ICONS_DICT = {"salad": "https://img.icons8.com/plasticine/100/000000/salad.png",
                       "chicken": "https://img.icons8.com/cotton/64/000000/thanksgiving-turkey.png",
-                      "soup": "https://img1.pnghut.com/0/10/0/SWYfhzMDxn/logo-food-bowl-cream-spoon.jpg",
-                      "pasta": "https://www.clipartmax.com/png/middle/140-1402474_spaghetti-emoji-png.png"}
+                      "soup": "https://img.icons8.com/doodle/100/000000/soup-plate.png",
+                      "pasta": "https://img.icons8.com/officel/16/000000/spaghetti.png"}
         DEFAULT_ICON = "https://www.diginico.com/wp-content/uploads/2020/01/fridge.jpg"
 
         matched = False
