@@ -1,17 +1,20 @@
+# Handles call to RecipePuppy API. get_recipes() returns list of dictionaries representing recipes.
+
 import requests
 import json
 
 
+# ---------------------------------------------------------------------------
 # RECIPE PUPPY API DOCUMENTATION
 # For example:
 # http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
 #
 # Optional Parameters:
-# i : comma delimited ingredients
+# i : comma delimited ingredients (with '-' to exclude)
 # q : normal search query (ex: "omelet")
-# p : page (???)
+# p : page
 # format=xml : if you want xml instead of json
-
+# ---------------------------------------------------------------------------
 
 def jprint(obj):
     # create a formatted string of the Python JSON object
@@ -35,18 +38,17 @@ def generate_query_string(ingreds_list, dish_type_str):
     return call_str
 
 
-def get_recipes(ingredients, dish_type_str):
+def get_recipes(ingredients, dish_type_str, num_pages: int):
     # Create api call string.
     call_str_template = generate_query_string(ingredients, dish_type_str)
-    print(call_str_template)
+    # print(call_str_template)
 
     # Make GET requests to get a Response object "r"; iterate through pages until no more results are found
     all_recipes_arr = []
     page_num = 0
 
-    while page_num < 10:
+    while page_num < num_pages:
         page_num += 1
-        print(page_num)
         r = requests.get(call_str_template + "&p=" + str(page_num))
         if r.status_code != 200:
             continue
@@ -59,3 +61,12 @@ def get_recipes(ingredients, dish_type_str):
     return all_recipes_arr
 
 
+# ~~~~~~~~~~~~~~~~~~~~ FOR TESTING ONLY ~~~~~~~~~~~~~~~~~~~~
+def main():
+    test_ingreds_list = ["onions", "chicken"]
+    get_recipes(test_ingreds_list, "", 5)
+
+
+if __name__ == '__main__':
+    main()
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
