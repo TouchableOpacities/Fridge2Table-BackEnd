@@ -25,6 +25,7 @@ def process_query_result(query_result):
     # ... DO SOME STUFF ...
     for recipe in recipes:
         recipe.replace_thumbnail()
+        recipe.clean_title()
 
     # "Dictify" each recipe and return list of dicts ready for sending to frontend as JSON
     result = []
