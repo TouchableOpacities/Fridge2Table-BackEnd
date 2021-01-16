@@ -38,7 +38,7 @@ def generate_query_string(ingreds_list, dish_type_str):
     return call_str
 
 
-def get_recipes(ingredients, dish_type_str):
+def get_recipes(ingredients, dish_type_str, num_pages: int):
     # Create api call string.
     call_str_template = generate_query_string(ingredients, dish_type_str)
     print(call_str_template)
@@ -47,7 +47,7 @@ def get_recipes(ingredients, dish_type_str):
     all_recipes_arr = []
     page_num = 0
 
-    while page_num < 10:
+    while page_num < num_pages:
         page_num += 1
         r = requests.get(call_str_template + "&p=" + str(page_num))
         if r.status_code != 200:
@@ -57,7 +57,7 @@ def get_recipes(ingredients, dish_type_str):
             break
         all_recipes_arr = all_recipes_arr + curr_page_results
 
-    jprint(all_recipes_arr)
+    # jprint(all_recipes_arr)
     return all_recipes_arr
 
 
@@ -65,6 +65,7 @@ def get_recipes(ingredients, dish_type_str):
 def main():
     test_ingreds_list = ["onions", "chicken"]
     get_recipes(test_ingreds_list, "")
+
 
 if __name__ == '__main__':
     main()
