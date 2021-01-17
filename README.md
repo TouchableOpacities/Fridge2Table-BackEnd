@@ -24,4 +24,4 @@ Front End: React-Native <br />
 Backend: Django/Python <br /> 
 
 **Presentation URL** <br />
-Coming soon! (so hold onto your hats!)
+https://youtu.be/HSklE3-9H9k
